@@ -2,6 +2,9 @@ const section = document.querySelector('.books-list');
 const addButton = document.querySelector('.add-books button');
 const title = document.querySelector('.add-books .title input');
 const author = document.querySelector('.add-books .author input');
+const addBookSection = document.querySelector('.add-books');
+const message = document.createElement('p');
+addBookSection.appendChild(message);
 let books = [];
 if (window.localStorage.booksCollection)
 {
@@ -35,6 +38,21 @@ function removeBook() {
 }
 function addBook ()
 {
+    message.textContent = '';
+    if (title.value === '' || author.value === ''){
+        message.style.cssText=`color:red;margin-top:20px;`;
+        if (title.value === '' &&  author.value === '')
+        {
+            message.textContent = 'title and author fields are missing please fill them before adding your book';
+        }
+        else if(title.value === '') {
+            message.textContent = 'title field is missing please fill it before adding your book';
+        }
+        else {
+            message.textContent = 'author field is missing please fill it before adding your book';       
+        }
+        return;
+    }
     const dynamicSection = document.createElement('div');
     dynamicSection.innerHTML = `
     <p>${title.value}</p>
@@ -51,5 +69,7 @@ function addBook ()
         const removeButton =  document.querySelector(`.books-list div:nth-of-type(${i}) button `);
         removeButton.addEventListener('click', removeBook);
     }
+    title.value = '';
+    author.value = '';
 }
 addButton.addEventListener('click', addBook);
