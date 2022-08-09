@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Awesome Books: first version 
-> building the functionality of adding new books to the list shown in the landdding page beside the ability of removing them use remove button all this done using concepts o array , objects and local storage.
+> building the functionality of adding new books to the list shown in the landing page beside the ability of removing them use remove button all this done using concepts of array , objects and local storage.
 
 ## Built With
 
@@ -10,7 +10,7 @@
 
 ## Live Demo 
 
-[Live Demo Link](https://mohamed20163858.github.io/my-portfolio/)
+[Live Demo Link](https://mohamed20163858.github.io/awesome-books/)
 
 
 ## Getting Started
