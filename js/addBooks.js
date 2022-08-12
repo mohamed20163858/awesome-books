@@ -3,8 +3,8 @@ const section = document.querySelector('.books-list');
 const addButton = document.querySelector('.add-books button');
 const title = document.querySelector('.add-books .title input');
 const author = document.querySelector('.add-books .author input');
-const addBookSection = document.querySelector('.add-books');
-addBookSection.appendChild(message);
+const main = document.querySelector('main');
+main.appendChild(message);
 let bookTitle;
 let bookAuthor;
 function BooksArray(books = []) {
@@ -33,6 +33,7 @@ class Methods {
       <button>Remove</button>
       `;
     section.appendChild(dynamicSection);
+    section.style.cssText = 'border: 4px black solid;';
     const book = { title: title.value, author: author.value };
     books.books.push(book);
     window.localStorage.booksCollection = JSON.stringify(books.books);
@@ -42,7 +43,7 @@ class Methods {
     }
     title.value = '';
     author.value = '';
-    this.style.color = 'green';
+    this.style.color = 'black';
   }
 
   removeBook() {
@@ -54,6 +55,9 @@ class Methods {
       (item) => item.title !== bookTitle || item.author !== bookAuthor,
     );
     window.localStorage.booksCollection = JSON.stringify(books.books);
+    if (books.books.length === 0) {
+      section.style.cssText = 'border: none;';
+    }
   }
 }
 const booksMethods = new Methods();
@@ -67,6 +71,7 @@ if (window.localStorage.booksCollection) {
         <button>Remove</button>
         `;
     section.appendChild(loadedSection);
+    section.style.cssText = 'border: 4px black solid;';
     const removeButtonStatic = document.querySelector(`.books-list div:nth-of-type(${i + 1}) button `);
     removeButtonStatic.addEventListener('click', booksMethods.removeBook);
   }
