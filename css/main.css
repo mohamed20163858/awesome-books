@@ -3,14 +3,27 @@
   font-weight: 700;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96vh;
+}
+
 a {
   text-decoration: none;
   color: black;
 }
 
+h1,
+h2 {
+  font-size: 48px;
+}
+
 header {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 header nav {
@@ -36,7 +49,7 @@ header nav ul li {
 }
 
 header nav ul li:not(:last-of-type) {
-  border-right: 3px black solid;
+  border-right: 3px #2b547a solid;
 }
 
 .books-list-section,
@@ -116,6 +129,14 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.contact-info-section h2 {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 footer {

@@ -8,26 +8,25 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Awesome Books</a>
-            <ul>
-                <li><a href="#list">List</a></li>
-                <li><a href="#add-new">Add new</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <p>Date now</p>
-    </header>
     <main>
-        <section class="books-list-section" id="list">
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Awesome Books</a>
+                <ul>
+                    <li><a href="#list">List</a></li>
+                    <li><a href="#add-new">Add new</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p>Date now</p>
+        </header>
+        <section class="books-list-section hidden" id="list">
             <h1>All awesome books</h1>
             <ul class="books-list"></ul>
         </section>
         <section class="add-books-section" id="add-new">
-            <hr>
             <h2>Add a new book</h2>
-            <form action="index.html" method="post" class="add-books">
+            <form action="index.html#add-new" method="post" class="add-books">
                 <div class="title">
                     <label for="title"></label>
                     <input type="text" name="title" id="title" placeholder="Title" >
@@ -39,7 +38,7 @@
                 <button type="submit">Add</button>
             </form>
         </section>
-        <section class="contact-info-section" id="contact">
+        <section class="contact-info-section hidden" id="contact">
             <h2>Contact informations</h2>
             <div class="contact-info-details">
                 <p>Do you have any questions or you just need to say "Hello"?</p>

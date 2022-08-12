@@ -13,7 +13,6 @@ function BooksArray(books = []) {
 const books = new BooksArray();
 class Methods {
   addBook() {
-    message.textContent = '';
     const dynamicSection = document.createElement('li');
     dynamicSection.classList.add('row');
     dynamicSection.innerHTML = `
