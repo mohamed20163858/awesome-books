@@ -3,6 +3,42 @@
   font-weight: 700;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px black solid;
+  padding: 5px 30px;
+}
+
+header p {
+  align-self: flex-end;
+}
+
+header nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+header nav ul li {
+  padding: 10px;
+}
+
+header nav ul li:not(:last-of-type) {
+  border-right: 3px black solid;
+}
+
 .books-list-section,
 .add-books-section {
   display: flex;
@@ -80,4 +116,9 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+footer {
+  border: 3px black solid;
+  padding: 5px 30px;
 }
