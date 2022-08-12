@@ -1,4 +1,9 @@
 const navMenus = document.querySelectorAll('header nav ul li a');
+const date = document.querySelector('header p');
+window.setInterval(() => {
+  const dateNow = new Date();
+  date.textContent = `${dateNow.toDateString()} ${dateNow.toLocaleTimeString()}`;
+}, 1000);
 navMenus[1].style.color = 'blue';
 for (let i = 0; i < navMenus.length; i += 1) {
   navMenus[i].addEventListener('click', () => {
