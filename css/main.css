@@ -3,6 +3,62 @@
   font-weight: 700;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96vh;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h1,
+h2 {
+  font-size: 48px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px black solid;
+  padding: 5px 30px;
+}
+
+header p {
+  align-self: flex-end;
+}
+
+header nav ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+header nav ul li {
+  padding: 10px;
+}
+
+header nav ul li:not(:last-of-type) {
+  border-right: 3px #2b547a solid;
+}
+
+.books-list-section,
+.add-books-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
   border: 3px black solid;
   box-shadow: 4px 4px black;
@@ -40,7 +96,7 @@ button {
   margin-bottom: 20px;
 }
 
-.add-books hr {
+.add-books-section hr {
   margin-top: 30px;
   margin-bottom: 30px;
   height: 2px;
@@ -49,7 +105,7 @@ button {
   border-radius: 50%;
 }
 
-.add-books h2 {
+.add-books-section h2 {
   margin-top: 0;
 }
 
@@ -60,10 +116,11 @@ main {
 }
 
 .books-list {
-  width: 50%;
+  width: 50vw;
+  padding: 0;
 }
 
-.books-list div:nth-of-type(2n+1) {
+.books-list li:nth-of-type(2n+1) {
   background-color: rgb(221, 221, 221);
 }
 
@@ -72,4 +129,17 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+.contact-info-section h2 {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  border: 3px black solid;
+  padding: 5px 30px;
 }

@@ -9,22 +9,52 @@
 </head>
 <body>
     <main>
-        <h1>All awesome books</h1>
-        <section class="books-list"></section>
-        <section class="add-books">
-            <hr>
+        <header>
+            <nav>
+                <a href="index.html" class="logo">Awesome Books</a>
+                <ul>
+                    <li><a href="#list">List</a></li>
+                    <li><a href="#add-new">Add new</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <p></p>
+        </header>
+        <section class="books-list-section hidden" id="list">
+            <h1>All awesome books</h1>
+            <ul class="books-list"></ul>
+        </section>
+        <section class="add-books-section" id="add-new">
             <h2>Add a new book</h2>
-            <div class="title">
-                <label for="title"></label>
-                <input type="text" name="title" id="title" placeholder="Title">
+            <form action="index.html" method="get" class="add-books">
+                <div class="title">
+                    <label for="title"></label>
+                    <input type="text" name="title" id="title" placeholder="Title" >
+                </div>
+                <div class="author">
+                    <label for="author"></label>
+                    <input type="text" name="author" id="author" placeholder="Author">
+                </div>
+                <button type="submit">Add</button>
+            </form>
+        </section>
+        <section class="contact-info-section hidden" id="contact">
+            <h2>Contact informations</h2>
+            <div class="contact-info-details">
+                <p>Do you have any questions or you just need to say "Hello"?</p>
+                <p>You can reach out to us!</p>
+                <ul class="contact-info-list">
+                    <li>Our email:<a href="mailto:mail@mail.com?subject=Feedback">mail@mail.com</a></li>
+                    <li>Our phone number:0043586534422</li>
+                    <li>Our address:Streetname 22,84503 City,Country</li>
+                </ul>
             </div>
-            <div class="author">
-                <label for="author"></label>
-                <input type="text" name="author" id="author" placeholder="Author">
-            </div>
-            <button type="submit">Add</button>
         </section>
     </main>
+    <footer>
+        <p>Copyright&nbsp;&nbsp;&nbsp;&nbsp;...</p>
+    </footer>
     <script src="js/addBooks.js"></script>
+    <script src="js/singlePageApp.js"></script>
 </body>
 </html>
