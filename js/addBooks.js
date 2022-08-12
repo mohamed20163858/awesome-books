@@ -1,10 +1,10 @@
 const message = document.createElement('p');
 const section = document.querySelector('.books-list');
-const addButton = document.querySelector('.add-books button');
+const addButton = document.querySelector('.add-books');
 const title = document.querySelector('.add-books .title input');
 const author = document.querySelector('.add-books .author input');
-const main = document.querySelector('main');
-main.appendChild(message);
+const addBooksSection = document.querySelector('.add-books-section');
+addBooksSection.appendChild(message);
 let bookTitle;
 let bookAuthor;
 function BooksArray(books = []) {
@@ -13,20 +13,8 @@ function BooksArray(books = []) {
 const books = new BooksArray();
 class Methods {
   addBook() {
-    const use = new Methods();
     message.textContent = '';
-    if (title.value === '' || author.value === '') {
-      message.style.cssText = 'color:red;margin-top:20px;';
-      if (title.value === '' && author.value === '') {
-        message.textContent = 'title and author fields are missing please fill them before adding your book';
-      } else if (title.value === '') {
-        message.textContent = 'title field is missing please fill it before adding your book';
-      } else {
-        message.textContent = 'author field is missing please fill it before adding your book';
-      }
-      return;
-    }
-    const dynamicSection = document.createElement('div');
+    const dynamicSection = document.createElement('li');
     dynamicSection.classList.add('row');
     dynamicSection.innerHTML = `
       <p>"${title.value}" by ${author.value}</p>
@@ -37,12 +25,6 @@ class Methods {
     const book = { title: title.value, author: author.value };
     books.books.push(book);
     window.localStorage.booksCollection = JSON.stringify(books.books);
-    for (let i = 1; i <= books.books.length; i += 1) {
-      const removeButton = document.querySelector(`.books-list div:nth-of-type(${i}) button `);
-      removeButton.addEventListener('click', use.removeBook);
-    }
-    title.value = '';
-    author.value = '';
     this.style.color = 'black';
   }
 
@@ -64,7 +46,7 @@ const booksMethods = new Methods();
 if (window.localStorage.booksCollection) {
   books.books = JSON.parse(window.localStorage.booksCollection);
   for (let i = 0; i < books.books.length; i += 1) {
-    const loadedSection = document.createElement('div');
+    const loadedSection = document.createElement('li');
     loadedSection.classList.add('row');
     loadedSection.innerHTML = `
         <p>"${books.books[i].title}" by ${books.books[i].author}</p>
@@ -72,8 +54,23 @@ if (window.localStorage.booksCollection) {
         `;
     section.appendChild(loadedSection);
     section.style.cssText = 'border: 4px black solid;';
-    const removeButtonStatic = document.querySelector(`.books-list div:nth-of-type(${i + 1}) button `);
+    const removeButtonStatic = document.querySelector(`.books-list li:nth-of-type(${i + 1}) button `);
     removeButtonStatic.addEventListener('click', booksMethods.removeBook);
   }
 }
-addButton.addEventListener('click', booksMethods.addBook);
+// addButton.addEventListener('submit', booksMethods.addBook);
+addButton.addEventListener('submit', (e) => {
+  if (title.value === '' || author.value === '') {
+    e.preventDefault();
+    message.style.cssText = 'color:red;margin-top:20px;';
+    if (title.value === '' && author.value === '') {
+      message.textContent = 'title and author fields are missing please fill them before adding your book';
+    } else if (title.value === '') {
+      message.textContent = 'title field is missing please fill it before adding your book';
+    } else {
+      message.textContent = 'author field is missing please fill it before adding your book';
+    }
+  } else {
+    booksMethods.addBook();
+  }
+});
